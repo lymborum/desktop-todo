@@ -35,10 +35,10 @@ function nextOccur(recur, now, after){
 function seed(){
   const now = Date.now();
   return [
-    { id:'s1', text:'还书给老张',   prio:'mid', dueMs: now+8*HOUR,       total:8*HOUR,  recur:null,   done:false, completedAt:null, notified:false },
-    { id:'s2', text:'倒垃圾',       prio:'',   dueMs: nextOccur('daily', now),   total:DAY,     recur:'daily', done:false, completedAt:null, notified:false },
-    { id:'s3', text:'给爸妈打电话', prio:'low', dueMs: nextOccur('weekly', now),  total:7*DAY,   recur:'weekly',done:false, completedAt:null, notified:false },
-    { id:'s4', text:'交房租',       prio:'hi',  dueMs: now+26*HOUR,      total:26*HOUR, recur:null,   done:false, completedAt:null, notified:false },
+    { id:'s1', text:'完成日报',     prio:'mid', dueMs: now+8*HOUR,       total:8*HOUR,  recur:null,   done:false, completedAt:null, notified:false },
+    { id:'s2', text:'喝两升水',     prio:'',   dueMs: nextOccur('daily', now),   total:DAY,     recur:'daily', done:false, completedAt:null, notified:false },
+    { id:'s3', text:'给朋友回消息', prio:'low', dueMs: nextOccur('weekly', now),  total:7*DAY,   recur:'weekly',done:false, completedAt:null, notified:false },
+    { id:'s4', text:'整理书桌',     prio:'hi',  dueMs: now+26*HOUR,      total:26*HOUR, recur:null,   done:false, completedAt:null, notified:false },
   ];
 }
 
@@ -359,6 +359,6 @@ setInterval(pruneCompleted, 3600000); // 每小时
   render();
   // 全局快捷键呼出输入框
   if (window.api) window.api.onShowAdd(() => { note.classList.add('adding'); setTimeout(()=>input.focus(),60); });
-  // 启动后刷新钉住状态（示例「还书给老张」8h 内会立即钉住）
+  // 启动后刷新钉住状态（示例任务 8h 内会立即钉住）
   setTimeout(updatePin, 1200);
 })();

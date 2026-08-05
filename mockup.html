@@ -349,7 +349,7 @@
   <div class="toast" id="toast">
     <span class="t-tape"></span>
     <div class="toast-body">
-      <b id="toastTitle">还书给老张</b> 剩余不到 <span id="toastTime">8</span> 小时
+      <b id="toastTitle">完成日报</b> 剩余不到 <span id="toastTime">8</span> 小时
       <span class="t-when" id="toastWhen">预计 20:15 到期</span>
     </div>
     <div class="t-acts">
@@ -379,12 +379,12 @@ const note = $('note'), list = $('list'), hdWarn = $('hdWarn');
 
 /* ═══════════ 数据 ═══════════ */
 const seed = [
-  { text:'还书给老张',     prio:'mid',  dueMs: Date.now()+8*HOUR,          recur:null },
-  { text:'明天交周报',     prio:'hi',   dueMs: Date.now()+26*HOUR,         recur:null },
-  { text:'倒垃圾',         prio:'',     recur:'daily',                     },
-  { text:'给爸妈打电话',   prio:'low',  recur:'weekly',                    },
-  { text:'备份移动硬盘',   prio:'low',  dueMs: Date.now()+3*DAY,           recur:null },
-  { text:'交房租',         prio:'hi',   dueMs: Date.now()-5*HOUR,          recur:null },
+  { text:'完成日报',       prio:'mid',  dueMs: Date.now()+8*HOUR,          recur:null },
+  { text:'整理书架',       prio:'hi',   dueMs: Date.now()+26*HOUR,         recur:null },
+  { text:'喝两升水',       prio:'',     recur:'daily',                     },
+  { text:'给朋友回消息',   prio:'low',  recur:'weekly',                    },
+  { text:'清理收件箱',     prio:'low',  dueMs: Date.now()+3*DAY,           recur:null },
+  { text:'整理书桌',       prio:'hi',   dueMs: Date.now()-5*HOUR,          recur:null },
 ];
 let tasks = [];
 function makeSeed(){
