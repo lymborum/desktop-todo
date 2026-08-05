@@ -6,9 +6,13 @@ const { execFile } = require('child_process');
 let win = null;
 const dataFile = () => path.join(app.getPath('userData'), 'tasks.json');
 
+// 固定数据目录：打包版与开发版共用同一份任务数据（%APPDATA%/glass-todo）
+app.setPath('userData', path.join(app.getPath('appData'), 'glass-todo'));
+
 // 前台窗口检测 / 壁纸层挂载工具（tools/，源码见同目录 .cs，Windows 下用 csc 编译）
-const FG_CHECK = path.join(__dirname, 'tools', 'fgcheck.exe');
-const PIN_TO_DESKTOP = path.join(__dirname, 'tools', 'pin-to-desktop.exe');
+const toolsDir = app.isPackaged ? path.join(process.resourcesPath, 'tools') : path.join(__dirname, 'tools');
+const FG_CHECK = path.join(toolsDir, 'fgcheck.exe');
+const PIN_TO_DESKTOP = path.join(toolsDir, 'pin-to-desktop.exe');
 const DESKTOP_CLASSES = new Set(['Progman', 'WorkerW']); // Windows 桌面
 let lastFgClass = '';
 let fgTimer = null;
